@@ -1,3 +1,8 @@
 benchmark
 test
+algorithms.o
+HeapSort.txt
+InsertionSort.txt
+MergeSort.txt
+QuickSort.txt
 
