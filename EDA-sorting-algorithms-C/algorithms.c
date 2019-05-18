@@ -84,3 +84,35 @@ void _swap(int *v, int i, int j){
   v[i] = v[j];
   v[j] = temp;
 }
+
+//HEAP SORT
+void heapSort(int *A, int n){
+  _buildMaxHeap(A, n);
+  int heapSize = n;
+  for(int i = n - 1; i >= 1; i--){
+    _swap(A, 0, i);
+    heapSize--;
+    _maxHeapfy(A, heapSize, 0);
+  }
+}
+
+void _buildMaxHeap(int *A, int n){
+  for(int i = (int)floor(n / 2.0); i >= 0; i--)
+    _maxHeapfy(A, n, i);
+}
+
+void _maxHeapfy(int *A, int heapSize, int i){
+  int l = 2 * (i + 1) - 1; //left
+  int r = 2 * (i + 1); //right
+  int largest;
+  if(l < heapSize && A[l] > A[i])
+    largest = l;
+  else
+    largest = i;
+  if(r < heapSize && A[r] > A[largest])
+    largest = r;
+  if(largest != i){
+    _swap(A, i, largest);
+    _maxHeapfy(A, heapSize, largest);
+  }
+}

@@ -22,4 +22,9 @@ int main(void){
   int v3[] = {0, 3, 0, -6, 1};
   quickSort(v3, 5);
   printArray(v3, 5);
+  
+  printf("HeapSort\n");
+  int v4[] = {11, 12, -6, 8, 7};
+  quickSort(v4, 5);
+  printArray(v4, 5);
 }

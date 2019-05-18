@@ -1,5 +1,5 @@
 benchmark: algorithms.o benchmark.c
-	gcc benchmark.c algorithms.o -o benchmark -lm
+	gcc benchmark.c algorithms.o -o benchmark -lm -lrt
 	./benchmark
 
 test: algorithms.o test.c
