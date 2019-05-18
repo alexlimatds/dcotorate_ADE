@@ -23,7 +23,7 @@ void runBattery(int *n, int n_size, int *data, int data_size, void (*sortFunctio
   
   for(int i = 0; i < n_size; i++){
     printf("input of size %d\n", n[i]);
-    for(int j = 1; j < 10; j++){
+    for(int j = 1; j <= 10; j++){
       int *input = copyArray(data, n[i]);
       struct timespec stop, start;
       int clock1 = clock_gettime(CLOCK_REALTIME, &start);
