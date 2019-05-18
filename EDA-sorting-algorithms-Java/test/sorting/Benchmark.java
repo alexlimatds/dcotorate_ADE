@@ -16,10 +16,10 @@ public class Benchmark {
 		int[] data = Util.createRandomArray(n[n.length -1]);
 		
 		try{
-			//runBattery(new MergeSort(), n, data);
-			//runBattery(new QuickSort(), n, data);
-			//runBattery(new InsertionSort(), n, data);
+			runBattery(new MergeSort(), n, data);
+			runBattery(new QuickSort(), n, data);
 			runBattery(new HeapSort(), n, data);
+			runBattery(new InsertionSort(), n, data);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -31,13 +31,13 @@ public class Benchmark {
 			throw new IllegalArgumentException("data size lower than max input size");
 		
 		String sorterName = sorter.getClass().getSimpleName();
-		String txt = "n;case number;time\n";
+		String txt = "n;case number;time in nanosecs\n";
 		
 		System.out.println(sorterName);
 		
 		for(int ni : n){
 			System.out.println("input of size " + ni);
-			for(int i = 1; i < 6; i++){
+			for(int i = 1; i <= 10; i++){
 				int[] input = Arrays.copyOf(data, ni);
 				long time = runCase(input, sorter);
 				txt += String.format("%d;%d;%d\n", ni, i, time);
