@@ -9,8 +9,9 @@ public class Benchmark {
 	
 	public static void main(String[] args) {
 		//tamanhos das entradas
-		int[] n = {1_000, 5_000, 10_000, 50_000, 
-				100_000, 500_000, 1_000_000};
+		int[] n = {10, 20, 30, 50, 
+				100, 200, 300, 700, 
+				1_000, 5_000, 10_000, 50_000};
 		
 		int[] data = Util.createRandomArray(n[n.length -1]);
 		
@@ -49,9 +50,9 @@ public class Benchmark {
 	}
 	
 	static long runCase(int[] v, Sorter sorter){
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		sorter.sort(v);
-		long stop = System.currentTimeMillis();
+		long stop = System.nanoTime();
 		return stop -start;
 	}
 }
