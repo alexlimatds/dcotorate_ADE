@@ -9,17 +9,20 @@ public class Benchmark {
 	
 	public static void main(String[] args) {
 		//tamanhos das entradas
-		int[] n = {10, 20, 30, 50, 
+		/*int[] n = {10, 20, 30, 50, 
 				100, 200, 300, 700, 
-				1_000, 5_000, 10_000, 50_000};
+				1_000, 5_000, 10_000, 50_000};*/
+		int[] n = {10, 50, 60, 70, 80};
 		
 		int[] data = Util.createRandomArray(n[n.length -1]);
 		
 		try{
-			runBattery(new MergeSort(), n, data);
-			runBattery(new QuickSort(), n, data);
-			runBattery(new HeapSort(), n, data);
-			runBattery(new InsertionSort(), n, data);
+			//runBattery(new MergeSort(), n, data);
+			//runBattery(new QuickSort(), n, data);
+			//runBattery(new HeapSort(), n, data);
+			//runBattery(new InsertionSort(), n, data);
+			runBattery(new HybridMergeSort(), n, data);
+			runBattery(new HybridQuickSort(), n, data);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

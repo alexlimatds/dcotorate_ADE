@@ -4,3 +4,5 @@ bin
 /InsertionSort.txt
 /MergeSort.txt
 /QuickSort.txt
+/HybridMergeSort.txt
+/HybridQuickSort.txt
