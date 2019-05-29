@@ -2,7 +2,7 @@ package sorting;
 
 public class HybridQuickSort implements Sorter{
 	
-	private final int threshold = 40;
+	private final int threshold = 55;
 	private InsertionSort2 insertionSorter = new InsertionSort2();
 	
 	public void sort(int[] A){
