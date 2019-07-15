@@ -35,4 +35,12 @@ public class FloydWarshall {
 			P = Pk;
 		}
 	}
+	
+	public boolean hasNegativeCycles(){
+		int n = D.length;
+		for(int i = 0; i < n; i++)
+			if(D[i][i] < 0)
+				return true;
+		return false;
+	}
 }

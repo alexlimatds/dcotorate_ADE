@@ -1,11 +1,12 @@
 package algorithm;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class FloydWarshallTest {
 
 	@Test
-	public void testSearch(){
+	public void testSearch_1(){
 		double[][] W = new double[][]{
 			{0, 3, 8, Double.POSITIVE_INFINITY, -4}, 
 			{Double.POSITIVE_INFINITY, 0, Double.POSITIVE_INFINITY, 1, 7}, 
@@ -34,5 +35,21 @@ public class FloydWarshallTest {
 		
 		Util.assertEquals(expectedW, fw.D, 0.00001);
 		Util.assertEquals(expectedP, fw.P);
+		Assert.assertFalse(fw.hasNegativeCycles());
+	}
+	
+	@Test
+	public void testSearch_2(){
+		double[][] W = new double[][]{
+			{0, 5, 4, Double.POSITIVE_INFINITY}, 
+			{Double.POSITIVE_INFINITY, 0, Double.POSITIVE_INFINITY, 3}, 
+			{Double.POSITIVE_INFINITY, -6, 0, Double.POSITIVE_INFINITY}, 
+			{Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 2, 0} 
+		};
+		
+		FloydWarshall fw = new FloydWarshall();
+		fw.search(W);
+		
+		Assert.assertTrue(fw.hasNegativeCycles());
 	}
 }
