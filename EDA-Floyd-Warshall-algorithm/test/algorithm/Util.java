@@ -22,4 +22,22 @@ public class Util {
 			}
 		}
 	}
+	
+	public static void assertEquals(
+			Integer[][] expected, 
+			Integer[][] actual){
+		if(expected.length != actual.length)
+			throw new IllegalArgumentException("Matrizes com quantidade de linhas diferentes");
+		for(int i = 0; i < expected.length; i++){
+			for(int j = 0; j < expected[i].length; j++){
+				if(expected[i].length != actual[i].length)
+					throw new IllegalArgumentException("Matrizes com quantidade de colunas diferentes na linha " + i);
+				if(expected[i][j] != actual[i][j])
+					Assert.fail(
+							"Esperado: "+ expected[i][j] + 
+							" ; Recebido: " + actual[i][j] + 
+							" ; Linha "+ i +", coluna " + j);
+			}
+		}
+	}
 }

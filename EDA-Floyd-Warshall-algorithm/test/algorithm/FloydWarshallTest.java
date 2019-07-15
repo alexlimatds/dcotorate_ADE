@@ -14,17 +14,25 @@ public class FloydWarshallTest {
 			{Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 6, 0}
 		};
 		
-		FloydWarshall fd = new FloydWarshall();
-		double[][] D = fd.search(W);
+		FloydWarshall fw = new FloydWarshall();
+		fw.search(W);
 		
-		double[][] expected = new double[][]{
+		double[][] expectedW = new double[][]{
 			{0, 1, -3, 2, -4}, 
 			{3, 0, -4, 1, -1}, 
 			{7, 4, 0, 5, 3}, 
 			{2, -1, -5, 0, -2}, 
 			{8, 5, 1, 6, 0}
 		};
+		Integer[][] expectedP = new Integer[][]{
+			{null, 2, 3, 4, 0}, 
+			{3, null, 3, 1, 0}, 
+			{3, 2, null, 1, 0}, 
+			{3, 2, 3, null, 0}, 
+			{3, 2, 3, 4, null}
+		};
 		
-		Util.assertEquals(expected, D, 0.00001);
+		Util.assertEquals(expectedW, fw.D, 0.00001);
+		Util.assertEquals(expectedP, fw.P);
 	}
 }
