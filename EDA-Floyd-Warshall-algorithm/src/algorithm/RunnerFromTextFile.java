@@ -17,7 +17,20 @@ public class RunnerFromTextFile {
 		FloydWarshall fw = new FloydWarshall();
 		fw.search(W);
 		
-		System.out.println(fw.D);
+		int n = W.length;
+		System.out.println("Weight matrix of shortest paths:");
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++)
+				System.out.printf("%4.0f ", fw.D[i][j]);
+			System.out.println();
+		}
+		System.out.println("Antecessors matrix of shortest paths:");
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++)
+				System.out.printf("%4d ", fw.P[i][j]);
+			System.out.println();
+		}
+		System.out.println("Are there negative cycles: " + fw.hasNegativeCycles());
 	}
 	
 	private static double[][] readAdjacencyMatrix(String fileName){
